@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ממיר תאריך עברי ולועזי | מחשבון לוח שנה, יארצייט וגימטריה</title>
+  <title>ממיר תאריך עברי ולועזי</title>
   
+  <!-- FAVICON SVG ICON -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg%3E%3Crect x='34' y='22' width='54' height='60' rx='14' fill='%230f172a' transform='rotate(8 61 52)'/%3E%3Ctext x='61' y='61' font-family='sans-serif' font-weight='900' font-size='26' fill='%2338bdf8' text-anchor='middle' transform='rotate(8 61 52)'%3E14%3C/text%3E%3Crect x='12' y='16' width='54' height='60' rx='14' fill='%23ffffff' stroke='%23cbd5e1' stroke-width='2' transform='rotate(-5 39 46)'/%3E%3Ctext x='39' y='51' font-family='sans-serif' font-weight='900' font-size='32' fill='%231d4ed8' text-anchor='middle' transform='rotate(-5 39 46)'%3Eא%3C/text%3E%3Ctext x='39' y='65' font-family='sans-serif' font-weight='700' font-size='9' fill='%2364748b' text-anchor='middle' transform='rotate(-5 39 46)'%3Eתשפ%22ה%3C/text%3E%3C/g%3E%3C/svg%3E">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Heebo & Assistant -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -31,6 +34,7 @@
               900: '#0f172a'
             },
             gold: {
+              300: '#fde047',
               400: '#facc15',
               500: '#eab308',
               600: '#ca8a04',
@@ -49,7 +53,7 @@
       min-height: 100vh;
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(226, 232, 240, 0.8);
     }
@@ -57,14 +61,6 @@
       background-color: #1e3a8a;
       color: white;
       box-shadow: 0 4px 14px 0 rgba(30, 58, 138, 0.39);
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
     }
     @media print {
       .no-print { display: none !important; }
@@ -84,9 +80,15 @@
         
         <!-- Logo & Title -->
         <div class="flex items-center gap-3 text-center md:text-right">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/20 border border-gold-400/40 flex items-center justify-center text-gold-400 shadow-inner">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          <div class="w-12 h-12 flex items-center justify-center shrink-0 drop-shadow-md">
+            <svg class="w-12 h-12" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="drop-shadow(0px 4px 6px rgba(0,0,0,0.3))">
+                <rect x="34" y="22" width="54" height="60" rx="14" fill="#0f172a" transform="rotate(8 61 52)"/>
+                <text x="61" y="61" font-family="sans-serif" font-weight="900" font-size="26" fill="#38bdf8" text-anchor="middle" transform="rotate(8 61 52)">14</text>
+                <rect x="12" y="16" width="54" height="60" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" transform="rotate(-5 39 46)"/>
+                <text x="39" y="51" font-family="sans-serif" font-weight="900" font-size="32" fill="#1d4ed8" text-anchor="middle" transform="rotate(-5 39 46)">א</text>
+                <text x="39" y="65" font-family="sans-serif" font-weight="700" font-size="9" fill="#64748b" text-anchor="middle" transform="rotate(-5 39 46)">תשפ"ה</text>
+              </g>
             </svg>
           </div>
           <div>
@@ -139,13 +141,12 @@
     <!-- TAB 1: CONVERTER -->
     <div id="tab-content-converter" class="tab-content space-y-6">
       
-      <!-- Direction Toggle & Input Panel Grid -->
+      <!-- Input Panel Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         <!-- Controls Column (Inputs) -->
         <div class="lg:col-span-5 glass-card rounded-3xl p-6 shadow-xl border border-slate-200">
           
-          <!-- Mode Selector Header -->
           <div class="flex items-center justify-between mb-5 border-b border-slate-200 pb-4">
             <div class="flex items-center gap-2">
               <span class="w-3 h-3 rounded-full bg-brand-600 inline-block"></span>
@@ -170,7 +171,7 @@
 
             <!-- Sunset Checkbox -->
             <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-3.5 flex items-center gap-3">
-              <input type="checkbox" id="g2h-after-sunset" onchange="convertGregorianToHebrew()" class="w-4 h-4 text-amber-600 border-amber-300 rounded focus:ring-amber-500">
+              <input type="checkbox" id="g2h-after-sunset" onchange="convertGregorianToHebrew()" class="w-4 h-4 text-amber-600 border-amber-300 rounded focus:ring-amber-500 cursor-pointer">
               <label for="g2h-after-sunset" class="text-sm font-bold text-amber-900 cursor-pointer">לאחר השקיעה?</label>
             </div>
           </div>
@@ -188,24 +189,13 @@
               </div>
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1">שנה עברית:</label>
-                <input type="number" id="heb-input-year" min="3761" max="6000" oninput="convertHebrewToGregorian()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                <input type="number" id="heb-input-year" min="3761" max="6000" oninput="onHebrewYearInputChange()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-brand-500 focus:outline-none">
               </div>
             </div>
 
-            <!-- Gematria Year Hint -->
             <div class="flex items-center justify-between bg-slate-100 p-2.5 rounded-xl text-xs text-slate-600">
               <span>שנה בגימטריה: <strong id="heb-year-gematria-preview" class="text-brand-700 font-bold">תשפ"ה</strong></span>
               <span>(לדוגמה: 5785 = תשפ"ה)</span>
-            </div>
-
-            <!-- Presets -->
-            <div>
-              <span class="text-xs font-bold text-slate-500 block mb-2">בחירה מהירה לשנה:</span>
-              <div class="flex flex-wrap gap-1.5">
-                <button onclick="setHebrewYearPreset(5784)" class="px-2.5 py-1 text-xs bg-slate-100 hover:bg-slate-200 font-medium rounded-lg text-slate-700">תשפ"ד (5784)</button>
-                <button onclick="setHebrewYearPreset(5785)" class="px-2.5 py-1 text-xs bg-brand-100 font-bold text-brand-800 rounded-lg">תשפ"ה (5785)</button>
-                <button onclick="setHebrewYearPreset(5786)" class="px-2.5 py-1 text-xs bg-slate-100 hover:bg-slate-200 font-medium rounded-lg text-slate-700">תשפ"ו (5786)</button>
-              </div>
             </div>
           </div>
 
@@ -215,29 +205,23 @@
         <div class="lg:col-span-7">
           <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200 relative overflow-hidden h-full flex flex-col justify-between">
             
-            <!-- Decorative Background Accent -->
             <div class="absolute -top-12 -left-12 w-48 h-48 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div>
-              <!-- Header Badges -->
               <div class="flex items-center justify-between gap-2 mb-6">
                 <span class="inline-flex items-center gap-1.5 text-xs font-bold bg-slate-900 text-gold-400 px-3.5 py-1.5 rounded-full shadow-sm">
                   <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 011.342 1.258l-1.025 2.563 2.127 3.545a1 1 0 01-.858 1.513H17.21l.3 3.602a1 1 0 01-1.39 1.012L12 15.602V18a1 1 0 11-2 0v-2.398l-4.12 1.996a1 1 0 01-1.39-1.012l.3-3.602H2.741a1 1 0 01-.858-1.513l2.127-3.545L2.985 5.363a1 1 0 011.342-1.258l1.599.8L9 4.323V3a1 1 0 011-1z" clip-rule="evenodd"/></svg>
                   תוצאת ההמרה
                 </span>
                 <span id="result-day-of-week" class="text-sm font-extrabold text-brand-700 bg-brand-50 px-3 py-1 rounded-xl border border-brand-200">
-                  יום...
+                  ...
                 </span>
               </div>
 
               <!-- Main Hebrew Date Banner -->
               <div class="text-center my-4 p-6 bg-gradient-to-b from-slate-900 to-brand-900 text-white rounded-2xl shadow-lg border border-gold-500/30 relative">
-                <div class="text-xs text-gold-400 font-medium mb-1">תאריך עברי מלא</div>
                 <div id="result-hebrew-primary" class="text-2xl sm:text-4xl font-black font-heading tracking-wide text-white drop-shadow-md my-1">
-                  ...
-                </div>
-                <div id="result-hebrew-sub" class="text-sm text-slate-300 font-light mt-1">
                   ...
                 </div>
               </div>
@@ -255,18 +239,8 @@
                 </div>
               </div>
 
-              <!-- Extra Context Info (Parasha, Holiday, Omer) -->
+              <!-- Holiday Box -->
               <div class="space-y-2.5 text-sm">
-                <div class="flex items-center gap-3 p-3 bg-amber-50/60 rounded-xl border border-amber-200/80">
-                  <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                  </div>
-                  <div>
-                    <span class="text-xs text-amber-900/70 font-semibold block">פרשת השבוע הקרובה:</span>
-                    <strong id="result-parasha" class="text-amber-950 font-bold">טוען...</strong>
-                  </div>
-                </div>
-
                 <div id="holiday-card-box" class="hidden flex items-center gap-3 p-3 bg-emerald-50 rounded-xl border border-emerald-200">
                   <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
@@ -304,7 +278,6 @@
     <div id="tab-content-calendar" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-6 shadow-xl border border-slate-200">
         
-        <!-- Calendar Controls Bar -->
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 border-b border-slate-200 pb-4">
           <div class="flex items-center gap-3">
             <button onclick="changeCalMonth(-1)" class="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-700 transition">
@@ -326,7 +299,6 @@
           </div>
         </div>
 
-        <!-- Days of Week Header -->
         <div class="grid grid-cols-7 gap-1 text-center font-bold text-xs text-slate-600 mb-2">
           <div class="py-2 bg-slate-100 rounded-lg text-red-600">ראשון</div>
           <div class="py-2 bg-slate-100 rounded-lg">שני</div>
@@ -337,9 +309,8 @@
           <div class="py-2 bg-brand-900 text-gold-400 rounded-lg">שבת</div>
         </div>
 
-        <!-- Calendar Days Grid -->
         <div id="calendar-grid" class="grid grid-cols-7 gap-1.5 min-h-[380px]">
-          <!-- Dynamic Days injected via JS -->
+          <!-- Calendar Days -->
         </div>
 
       </div>
@@ -368,14 +339,13 @@
               </div>
               <div class="flex items-center pt-5">
                 <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-700">
-                  <input type="checkbox" id="yahrzeit-after-sunset" onchange="calculateYahrzeit()" class="w-4 h-4 text-brand-600 rounded">
+                  <input type="checkbox" id="yahrzeit-after-sunset" onchange="calculateYahrzeit()" class="w-4 h-4 text-brand-600 rounded cursor-pointer">
                   הפטירה התרחשה לאחר השקיעה
                 </label>
               </div>
             </div>
           </div>
 
-          <!-- Yahrzeit Results Table -->
           <div id="yahrzeit-results-container" class="space-y-3">
             <div class="flex items-center justify-between mb-2">
               <h3 class="font-bold text-slate-900 text-sm">תאריכים עתידיים ל-10 השנים הבאות:</h3>
@@ -396,7 +366,6 @@
                   </tr>
                 </thead>
                 <tbody id="yahrzeit-table-body" class="divide-y divide-slate-200 bg-white">
-                  <!-- Injected via JS -->
                 </tbody>
               </table>
             </div>
@@ -417,7 +386,6 @@
             <p class="text-sm text-slate-600 mt-1">חישוב גימטריה רגילה, קטנה והמרת מספרים לאותיות עבריות</p>
           </div>
 
-          <!-- Section 1: Text to Gematria -->
           <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
             <label class="block text-xs font-bold text-slate-700">הקלד מילה או משפט בעברית:</label>
             <input type="text" id="gematria-text-input" placeholder="לדוגמה: שלום עליכם, תשפ"ה, אהבה" oninput="calculateTextGematria()" class="w-full bg-white border border-slate-300 rounded-xl p-3 text-lg font-bold text-slate-900 focus:ring-2 focus:ring-brand-500 focus:outline-none">
@@ -438,7 +406,6 @@
             </div>
           </div>
 
-          <!-- Section 2: Number to Hebrew Year/Gematria Conversion -->
           <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
             <label class="block text-xs font-bold text-slate-700">המרת מספר/שנה לאותיות (למשל 5785):</label>
             <div class="flex gap-2">
@@ -459,8 +426,7 @@
 
   <script>
     /* ====================================================================
-       JEWISH CALENDAR & CONVERSION MATHEMATICAL ENGINE (HILLEL II ALGORITHM)
-       100% Offline Capable & Accurate
+       ACCURATE HEBREW CALENDAR & CONVERSION MATHEMATICAL ENGINE (HILLEL II)
        ==================================================================== */
 
     const HEBREW_MONTHS_NON_LEAP = [
@@ -477,7 +443,7 @@
 
     // Check if Hebrew Year is Leap
     function isHebrewLeapYear(hYear) {
-      return ((7 * hYear + 1) % 19) < 7;
+      return (17 * hYear + 11) % 19 < 12;
     }
 
     // Julian Day Number (JDN) from Gregorian Date
@@ -500,7 +466,7 @@
       return { year, month, day };
     }
 
-    // JDN of 1st Tishrei for given Hebrew Year
+    // JDN of 1st Tishrei (Rosh Hashanah) for given Hebrew Year
     function getHebrewRoshHashanahJdn(hYear) {
       const months = Math.floor((235 * hYear - 234) / 19);
       const parts = 12084 + 13753 * months;
@@ -517,6 +483,7 @@
         dayOfWeek = (day + 1) % 7;
       }
 
+      // Lo ADU Rosh
       if (dayOfWeek === 0 || dayOfWeek === 3 || dayOfWeek === 5) {
         day++;
       }
@@ -524,44 +491,35 @@
       return day + 347997;
     }
 
-    // Length of Hebrew Year in days
-    function getHebrewYearLength(hYear) {
-      return getHebrewRoshHashanahJdn(hYear + 1) - getHebrewRoshHashanahJdn(hYear);
-    }
-
-    // Days in a specific Hebrew month (1-indexed based on Tishrei=1)
+    // Days in a specific Hebrew month
     function getHebrewDaysInMonth(hYear, hMonth) {
-      // 1:Tishrei, 2:Cheshvan, 3:Kislev, 4:Tevet, 5:Shevat, ...
+      const isLeap = isHebrewLeapYear(hYear);
+      const yearLen = getHebrewRoshHashanahJdn(hYear + 1) - getHebrewRoshHashanahJdn(hYear);
+
       if (hMonth === 1) return 30; // Tishrei
+      if (hMonth === 2) return (yearLen % 10 === 5) ? 30 : 29; // Cheshvan
+      if (hMonth === 3) return (yearLen % 10 === 3) ? 29 : 30; // Kislev
       if (hMonth === 4) return 29; // Tevet
       if (hMonth === 5) return 30; // Shevat
-      if (hMonth === 6) return isHebrewLeapYear(hYear) ? 30 : 29; // Adar / Adar I
-      if (hMonth === 7 && isHebrewLeapYear(hYear)) return 29; // Adar II
 
-      // Adjust indexing for months after Adar in leap years
-      const isLeap = isHebrewLeapYear(hYear);
-      const nisanIndex = isLeap ? 8 : 7;
-      const iyarIndex = isLeap ? 9 : 8;
-      const sivanIndex = isLeap ? 10 : 9;
-      const tammuzIndex = isLeap ? 11 : 10;
-      const avIndex = isLeap ? 12 : 11;
-      const elulIndex = isLeap ? 13 : 12;
-
-      if (hMonth === nisanIndex) return 30;
-      if (hMonth === iyarIndex) return 29;
-      if (hMonth === sivanIndex) return 30;
-      if (hMonth === tammuzIndex) return 29;
-      if (hMonth === avIndex) return 30;
-      if (hMonth === elulIndex) return 29;
-
-      // Cheshvan (2) and Kislev (3) depend on year length
-      const yearLen = getHebrewYearLength(hYear);
-      const isShortYear = yearLen === 353 || yearLen === 383;
-      const isLongYear = yearLen === 355 || yearLen === 385;
-
-      if (hMonth === 2) return isLongYear ? 30 : 29; // Cheshvan
-      if (hMonth === 3) return isShortYear ? 29 : 30; // Kislev
-
+      if (!isLeap) {
+        if (hMonth === 6) return 29; // Adar
+        if (hMonth === 7) return 30; // Nisan
+        if (hMonth === 8) return 29; // Iyar
+        if (hMonth === 9) return 30; // Sivan
+        if (hMonth === 10) return 29; // Tammuz
+        if (hMonth === 11) return 30; // Av
+        if (hMonth === 12) return 29; // Elul
+      } else {
+        if (hMonth === 6) return 30; // Adar I
+        if (hMonth === 7) return 29; // Adar II
+        if (hMonth === 8) return 30; // Nisan
+        if (hMonth === 9) return 29; // Iyar
+        if (hMonth === 10) return 30; // Sivan
+        if (hMonth === 11) return 29; // Tammuz
+        if (hMonth === 12) return 30; // Av
+        if (hMonth === 13) return 29; // Elul
+      }
       return 29;
     }
 
@@ -569,7 +527,6 @@
     function convertGregorianToHebrewCalc(gYear, gMonth, gDay) {
       const jdn = gregorianToJdn(gYear, gMonth, gDay);
       
-      // Estimate Hebrew year
       let hYear = gYear + 3760;
       if (jdn >= getHebrewRoshHashanahJdn(hYear + 1)) {
         hYear++;
@@ -632,7 +589,6 @@
 
       let result = '';
 
-      // Hundreds
       let h = Math.floor(tensHundreds / 100);
       while (h > 4) {
         result += 'ת';
@@ -640,10 +596,8 @@
       }
       if (h > 0) result += hundreds[h];
 
-      // Tens and Ones
       let remainder = tensHundreds % 100;
       
-      // Special cases: 15 and 16
       if (remainder === 15) {
         result += 'טו';
       } else if (remainder === 16) {
@@ -654,7 +608,6 @@
         result += tens[t] + ones[o];
       }
 
-      // Add Gershayim (") or Geresh (') for styling
       if (result.length > 1) {
         result = result.slice(0, -1) + '"' + result.slice(-1);
       } else if (result.length === 1) {
@@ -682,7 +635,6 @@
         }
       }
 
-      // Small gematria
       let small = standard;
       while (small >= 10) {
         small = String(small).split('').reduce((acc, digit) => acc + parseInt(digit), 0);
@@ -691,7 +643,6 @@
       return { standard, small, count };
     }
 
-    // Local Holiday Calculation Helper
     function getLocalHolidayName(hMonthName, hDay) {
       if (hMonthName === 'תשרי') {
         if (hDay === 1 || hDay === 2) return 'ראש השנה';
@@ -720,30 +671,20 @@
        APPLICATION STATE & UI LOGIC
        ==================================================================== */
 
-    let currentMode = 'g2h'; // 'g2h' or 'h2g'
+    let currentMode = 'g2h';
     let currentCalDate = new Date();
     let currentConvertedResult = {};
 
     window.onload = function() {
-      // Set initial Gregorian Date input to today
       const today = new Date();
       document.getElementById('greg-input-date').value = formatDateForInput(today);
       document.getElementById('yahrzeit-date-input').value = formatDateForInput(today);
 
-      // Populate Hebrew Month and Day selects
       populateHebrewSelectors();
-
-      // Render Today's Date in Header
       renderTodayHeader();
-
-      // Execute Initial Conversion
       convertGregorianToHebrew();
-
-      // Initialize Gematria Calculator Tab defaults
       calculateTextGematria();
       convertNumberToHebrewGematria();
-
-      // Render Calendar
       renderCalendar();
     };
 
@@ -760,7 +701,8 @@
       const dayGematria = numberToGematria(heb.hDay);
       const yearGematria = numberToGematria(heb.hYear);
 
-      document.getElementById('today-day-name').textContent = heb.dayOfWeekName;
+      const dayText = heb.dayOfWeekName === 'שבת' ? 'שבת' : `יום ${heb.dayOfWeekName}`;
+      document.getElementById('today-day-name').textContent = dayText;
       document.getElementById('today-hebrew-str').textContent = `${dayGematria} ב${heb.monthName} ${yearGematria}`;
       document.getElementById('today-greg-str').textContent = now.toLocaleDateString('he-IL');
     }
@@ -814,9 +756,29 @@
       }
     }
 
+    function updateHebrewMonthOptions() {
+      const yearInput = document.getElementById('heb-input-year');
+      const monthSelect = document.getElementById('heb-input-month');
+      if (!yearInput || !monthSelect) return;
+
+      const hYear = parseInt(yearInput.value) || 5785;
+      const isLeap = isHebrewLeapYear(hYear);
+      const selectedVal = parseInt(monthSelect.value) || 1;
+      const months = isLeap ? HEBREW_MONTHS_LEAP : HEBREW_MONTHS_NON_LEAP;
+
+      monthSelect.innerHTML = '';
+      months.forEach((m, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx + 1;
+        opt.textContent = m;
+        monthSelect.appendChild(opt);
+      });
+
+      monthSelect.value = (selectedVal <= months.length) ? selectedVal : 1;
+    }
+
     function populateHebrewSelectors() {
       const daySelect = document.getElementById('heb-input-day');
-      const monthSelect = document.getElementById('heb-input-month');
       const yearInput = document.getElementById('heb-input-year');
 
       daySelect.innerHTML = '';
@@ -827,25 +789,22 @@
         daySelect.appendChild(opt);
       }
 
-      monthSelect.innerHTML = '';
-      HEBREW_MONTHS_LEAP.forEach((m, idx) => {
-        const opt = document.createElement('option');
-        opt.value = idx + 1;
-        opt.textContent = m;
-        monthSelect.appendChild(opt);
-      });
-
       const today = new Date();
       const todayHeb = convertGregorianToHebrewCalc(today.getFullYear(), today.getMonth() + 1, today.getDate());
       
       daySelect.value = todayHeb.hDay;
-      monthSelect.value = todayHeb.hMonth;
       yearInput.value = todayHeb.hYear;
 
+      updateHebrewMonthOptions();
+      document.getElementById('heb-input-month').value = todayHeb.hMonth;
       document.getElementById('heb-year-gematria-preview').textContent = numberToGematria(todayHeb.hYear);
     }
 
-    // Main Converter Logic: Gregorian -> Hebrew
+    function onHebrewYearInputChange() {
+      updateHebrewMonthOptions();
+      convertHebrewToGregorian();
+    }
+
     function convertGregorianToHebrew() {
       const dateVal = document.getElementById('greg-input-date').value;
       if (!dateVal) return;
@@ -877,10 +836,9 @@
       });
     }
 
-    // Main Converter Logic: Hebrew -> Gregorian
     function convertHebrewToGregorian() {
-      const hDay = parseInt(document.getElementById('heb-input-day').value);
-      const hMonth = parseInt(document.getElementById('heb-input-month').value);
+      const hDay = parseInt(document.getElementById('heb-input-day').value) || 1;
+      const hMonth = parseInt(document.getElementById('heb-input-month').value) || 1;
       const hYear = parseInt(document.getElementById('heb-input-year').value) || 5785;
 
       document.getElementById('heb-year-gematria-preview').textContent = numberToGematria(hYear);
@@ -905,7 +863,6 @@
       });
     }
 
-    // Display formatted results on Screen
     function displayConversionResult(res) {
       currentConvertedResult = res;
 
@@ -913,11 +870,17 @@
       const yearGematria = numberToGematria(res.hYear);
 
       // Main Hebrew Primary Line
-      document.getElementById('result-hebrew-primary').textContent = `${dayGematria} ב${res.hMonthName} ${yearGematria}`;
-      document.getElementById('result-hebrew-sub').textContent = `(${res.hDay} ב${res.hMonthName}, שנת ${res.hYear})`;
+      const primaryEl = document.getElementById('result-hebrew-primary');
+      if (primaryEl) {
+        primaryEl.textContent = `${dayGematria} ב${res.hMonthName} ${yearGematria}`;
+      }
 
       // Day of week
-      document.getElementById('result-day-of-week').textContent = `יום ${res.dayOfWeekName}`;
+      const dayText = res.dayOfWeekName === 'שבת' ? 'שבת' : `יום ${res.dayOfWeekName}`;
+      const dayOfWeekEl = document.getElementById('result-day-of-week');
+      if (dayOfWeekEl) {
+        dayOfWeekEl.textContent = dayText;
+      }
 
       // Gregorian String
       const formattedGreg = new Date(res.gYear, res.gMonth - 1, res.gDay).toLocaleDateString('he-IL', {
@@ -925,80 +888,32 @@
         month: 'long',
         day: 'numeric'
       });
-      document.getElementById('result-gregorian-str').textContent = formattedGreg + (res.afterSunset ? ' (לאחר השקיעה)' : '');
+      const gregStrEl = document.getElementById('result-gregorian-str');
+      if (gregStrEl) {
+        gregStrEl.textContent = formattedGreg + (res.afterSunset ? ' (לאחר השקיעה)' : '');
+      }
 
       // Leap Badge
       const leapBadge = document.getElementById('result-leap-badge');
-      if (res.isLeap) {
-        leapBadge.classList.remove('hidden');
-      } else {
-        leapBadge.classList.add('hidden');
+      if (leapBadge) {
+        if (res.isLeap) {
+          leapBadge.classList.remove('hidden');
+        } else {
+          leapBadge.classList.add('hidden');
+        }
       }
 
       // Check Holiday
       const holidayName = getLocalHolidayName(res.hMonthName, res.hDay);
       const holidayBox = document.getElementById('holiday-card-box');
-      if (holidayName) {
-        document.getElementById('result-holiday').textContent = holidayName;
-        holidayBox.classList.remove('hidden');
-      } else {
-        holidayBox.classList.add('hidden');
+      if (holidayBox) {
+        if (holidayName) {
+          document.getElementById('result-holiday').textContent = holidayName;
+          holidayBox.classList.remove('hidden');
+        } else {
+          holidayBox.classList.add('hidden');
+        }
       }
-
-      // Fetch precise Parasha & events via Hebcal REST API (With fallback)
-      fetchHebcalDetails(res.gYear, res.gMonth, res.gDay);
-    }
-
-    // Hebcal Online Sync for Parasha & Extra Holiday Info
-    function fetchHebcalDetails(gYear, gMonth, gDay) {
-      const parashaElem = document.getElementById('result-parasha');
-      parashaElem.textContent = 'טוען נתוני פרשה...';
-
-      const url = `https://www.hebcal.com/converter?cfg=json&gy=${gYear}&gm=${gMonth}&gd=${gDay}&g2h=1`;
-
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          if (data && data.events) {
-            const parashatEvent = data.events.find(e => e.includes('Parashat') || e.includes('פרשת'));
-            if (parashatEvent) {
-              parashaElem.textContent = parashatEvent.replace('Parashat ', 'פרשת ');
-            } else {
-              parashaElem.textContent = 'קריאה במחזור השבועי שבת';
-            }
-          } else {
-            parashaElem.textContent = 'נקבע לפי מחזור קריאת התורה בשבת';
-          }
-        })
-        .catch(() => {
-          parashaElem.textContent = 'נקבע לפי מחזור קריאת התורה בשבת';
-        });
-    }
-
-    function setGregorianOffset(offsetDays) {
-      const d = new Date();
-      d.setDate(d.getDate() + offsetDays);
-      document.getElementById('greg-input-date').value = formatDateForInput(d);
-      convertGregorianToHebrew();
-    }
-
-    function setHolidayPreset(type) {
-      const now = new Date();
-      let year = now.getFullYear();
-      if (type === 'rh') {
-        // Rosh Hashanah (Approx Sept/Oct)
-        document.getElementById('greg-input-date').value = `${year}-10-03`;
-      } else if (type === 'yk') {
-        document.getElementById('greg-input-date').value = `${year}-10-12`;
-      } else if (type === 'pesach') {
-        document.getElementById('greg-input-date').value = `${year}-04-13`;
-      }
-      convertGregorianToHebrew();
-    }
-
-    function setHebrewYearPreset(y) {
-      document.getElementById('heb-input-year').value = y;
-      convertHebrewToGregorian();
     }
 
     function goToToday() {
@@ -1028,7 +943,7 @@
       if (!currentConvertedResult.gYear) return;
       const gDate = `${currentConvertedResult.gYear}${String(currentConvertedResult.gMonth).padStart(2,'0')}${String(currentConvertedResult.gDay).padStart(2,'0')}`;
       const title = encodeURIComponent(`תאריך עברי: ${document.getElementById('result-hebrew-primary').textContent}`);
-      const details = encodeURIComponent(`תאריך עברי מלא: ${document.getElementById('result-hebrew-primary').textContent}\nיום בשבוע: ${currentConvertedResult.dayOfWeekName}`);
+      const details = encodeURIComponent(`תאריך עברי: ${document.getElementById('result-hebrew-primary').textContent}\nיום: ${currentConvertedResult.dayOfWeekName}`);
       
       const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${gDate}/${gDate}&details=${details}`;
       window.open(calendarUrl, '_blank');
@@ -1052,12 +967,14 @@
     }
 
     /* ====================================================================
-       MONTHLY COMBINED CALENDAR RENDERER
+       MONTHLY CALENDAR RENDERER
        ==================================================================== */
 
     function renderCalendar() {
       const monthTitle = document.getElementById('cal-month-title');
       const grid = document.getElementById('calendar-grid');
+      if (!grid || !monthTitle) return;
+
       grid.innerHTML = '';
 
       const year = currentCalDate.getFullYear();
@@ -1069,19 +986,17 @@
       const monthNamesHeb = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"];
       monthTitle.textContent = `${monthNamesHeb[month]} ${year}`;
 
-      const startingDay = firstDayOfMonth.getDay(); // 0 = Sunday
+      const startingDay = firstDayOfMonth.getDay();
       const totalDays = lastDayOfMonth.getDate();
 
       const today = new Date();
 
-      // Empty cells prior to 1st of month
       for (let i = 0; i < startingDay; i++) {
         const emptyCell = document.createElement('div');
         emptyCell.className = "bg-slate-100/50 rounded-xl p-2 min-h-[70px]";
         grid.appendChild(emptyCell);
       }
 
-      // Day cells
       for (let day = 1; day <= totalDays; day++) {
         const heb = convertGregorianToHebrewCalc(year, month + 1, day);
         const dayGematria = numberToGematria(heb.hDay);
@@ -1128,7 +1043,7 @@
     }
 
     /* ====================================================================
-       YAHRZEIT & ANNIVERSARY CALCULATOR
+       YAHRZEIT CALCULATOR
        ==================================================================== */
 
     function calculateYahrzeit() {
@@ -1147,20 +1062,19 @@
         gDay = d.getDate();
       }
 
-      // Base Hebrew Date of Passing
       const hebBase = convertGregorianToHebrewCalc(gYear, gMonth, gDay);
-
       const tableBody = document.getElementById('yahrzeit-table-body');
-      tableBody.innerHTML = '';
+      if (!tableBody) return;
 
-      const currentYear = new Date().getFullYear();
+      tableBody.innerHTML = '';
 
       for (let i = 0; i < 10; i++) {
         const targetHYear = hebBase.hYear + i;
         const jdn = convertHebrewToJdn(targetHYear, hebBase.hMonth, hebBase.hDay);
         const greg = jdnToGregorian(jdn);
 
-        const dayOfWeekName = HEBREW_DAY_NAMES[(jdn + 1) % 7];
+        const dayName = HEBREW_DAY_NAMES[(jdn + 1) % 7];
+        const dayText = dayName === 'שבת' ? 'שבת' : `יום ${dayName}`;
         const dayGematria = numberToGematria(hebBase.hDay);
         const yearGematria = numberToGematria(targetHYear);
 
@@ -1176,14 +1090,14 @@
           <td class="p-3 font-bold text-slate-700">${targetHYear - hebBase.hYear + 1}</td>
           <td class="p-3 font-bold text-brand-900">${dayGematria} ב${hebBase.monthName} ${yearGematria}</td>
           <td class="p-3 text-slate-800">${gregStr}</td>
-          <td class="p-3 text-slate-600">${dayOfWeekName}</td>
+          <td class="p-3 text-slate-600">${dayText}</td>
         `;
         tableBody.appendChild(row);
       }
     }
 
     /* ====================================================================
-       GEMATRIA & NUMBER CONVERTER TOOLS
+       GEMATRIA TOOLS
        ==================================================================== */
 
     function calculateTextGematria() {
@@ -1197,9 +1111,7 @@
 
     function convertNumberToHebrewGematria() {
       const numInput = parseInt(document.getElementById('num-to-gem-input').value) || 5785;
-      const resultElem = document.getElementById('num-to-gem-result');
-      
-      resultElem.textContent = numberToGematria(numInput);
+      document.getElementById('num-to-gem-result').textContent = numberToGematria(numInput);
     }
   </script>
 </body>
