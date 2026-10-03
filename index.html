@@ -118,28 +118,8 @@
   <!-- Main Container -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
 
-    <!-- Tab Buttons Header -->
-    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-6 bg-slate-200/80 p-1.5 rounded-2xl no-print border border-slate-300/60 shadow-inner">
-      <button onclick="switchTab('converter')" id="tab-btn-converter" class="tab-btn tab-active flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-        ממיר תאריכים
-      </button>
-      <button onclick="switchTab('calendar')" id="tab-btn-calendar" class="tab-btn text-slate-700 hover:bg-white/60 flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        לוח שנה משולב
-      </button>
-      <button onclick="switchTab('yahrzeit')" id="tab-btn-yahrzeit" class="tab-btn text-slate-700 hover:bg-white/60 flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-        מחשבון יארצייט ואירועים
-      </button>
-      <button onclick="switchTab('gematria')" id="tab-btn-gematria" class="tab-btn text-slate-700 hover:bg-white/60 flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-        מחשבון גימטריה
-      </button>
-    </div>
-
-    <!-- TAB 1: CONVERTER -->
-    <div id="tab-content-converter" class="tab-content space-y-6">
+    <!-- CONVERTER SECTION -->
+    <div id="tab-content-converter" class="space-y-6">
       
       <!-- Input Panel Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -272,154 +252,6 @@
 
       </div>
 
-    </div>
-
-    <!-- TAB 2: MONTHLY CALENDAR -->
-    <div id="tab-content-calendar" class="tab-content hidden space-y-4">
-      <div class="glass-card rounded-3xl p-6 shadow-xl border border-slate-200">
-        
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 border-b border-slate-200 pb-4">
-          <div class="flex items-center gap-3">
-            <button onclick="changeCalMonth(-1)" class="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-700 transition">
-              <svg class="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-            <h2 id="cal-month-title" class="text-xl font-black text-slate-900 font-heading min-w-[180px] text-center">
-              טוען חודש...
-            </h2>
-            <button onclick="changeCalMonth(1)" class="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-700 transition">
-              <svg class="w-5 h-5 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <button onclick="resetCalToCurrent()" class="px-3.5 py-1.5 bg-brand-700 hover:bg-brand-800 text-white font-bold rounded-xl text-xs transition shadow-sm">
-              החודש הנוכחי
-            </button>
-            <span class="text-xs text-slate-500 hidden sm:inline">| לחץ על יום להמרה מהירה</span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-7 gap-1 text-center font-bold text-xs text-slate-600 mb-2">
-          <div class="py-2 bg-slate-100 rounded-lg text-red-600">ראשון</div>
-          <div class="py-2 bg-slate-100 rounded-lg">שני</div>
-          <div class="py-2 bg-slate-100 rounded-lg">שלישי</div>
-          <div class="py-2 bg-slate-100 rounded-lg">רביעי</div>
-          <div class="py-2 bg-slate-100 rounded-lg">חמישי</div>
-          <div class="py-2 bg-slate-100 rounded-lg text-blue-600">שישי</div>
-          <div class="py-2 bg-brand-900 text-gold-400 rounded-lg">שבת</div>
-        </div>
-
-        <div id="calendar-grid" class="grid grid-cols-7 gap-1.5 min-h-[380px]">
-          <!-- Calendar Days -->
-        </div>
-
-      </div>
-    </div>
-
-    <!-- TAB 3: YAHRZEIT & EVENTS -->
-    <div id="tab-content-yahrzeit" class="tab-content hidden space-y-6">
-      <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200">
-        
-        <div class="max-w-2xl mx-auto">
-          <div class="text-center mb-6">
-            <h2 class="text-2xl font-black text-slate-900 font-heading">מחשבון יארצייט, ימי הולדת ואירועים</h2>
-            <p class="text-sm text-slate-600 mt-1">חישוב תאריכי האזכרה או הזיכרון העבריים ל-10 השנים הבאות בלחיצה אחת</p>
-          </div>
-
-          <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-4 mb-6">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">שם האירוע / הנפטר/ת (רשות):</label>
-              <input type="text" id="yahrzeit-name-input" placeholder="לדוגמה: יום זיכרון לסבא אברהם" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold focus:ring-2 focus:ring-brand-500 focus:outline-none">
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">תאריך פטירה/אירוע מקורי (לועזי):</label>
-                <input type="date" id="yahrzeit-date-input" onchange="calculateYahrzeit()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold focus:ring-2 focus:ring-brand-500 focus:outline-none">
-              </div>
-              <div class="flex items-center pt-5">
-                <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-700">
-                  <input type="checkbox" id="yahrzeit-after-sunset" onchange="calculateYahrzeit()" class="w-4 h-4 text-brand-600 rounded cursor-pointer">
-                  הפטירה התרחשה לאחר השקיעה
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div id="yahrzeit-results-container" class="space-y-3">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-bold text-slate-900 text-sm">תאריכים עתידיים ל-10 השנים הבאות:</h3>
-              <button onclick="window.print()" class="text-xs text-brand-700 hover:text-brand-900 font-bold flex items-center gap-1">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                הדפס רשימה
-              </button>
-            </div>
-
-            <div class="overflow-x-auto rounded-xl border border-slate-200">
-              <table class="w-full text-right text-sm">
-                <thead class="bg-slate-900 text-white text-xs font-bold">
-                  <tr>
-                    <th class="p-3">שנה</th>
-                    <th class="p-3">תאריך עברי</th>
-                    <th class="p-3">תאריך לועזי מקביל</th>
-                    <th class="p-3">יום בשבוע</th>
-                  </tr>
-                </thead>
-                <tbody id="yahrzeit-table-body" class="divide-y divide-slate-200 bg-white">
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-    <!-- TAB 4: GEMATRIA CALCULATOR -->
-    <div id="tab-content-gematria" class="tab-content hidden space-y-6">
-      <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200">
-        <div class="max-w-2xl mx-auto space-y-6">
-          
-          <div class="text-center">
-            <h2 class="text-2xl font-black text-slate-900 font-heading">מחשבון גימטריה ואותיות</h2>
-            <p class="text-sm text-slate-600 mt-1">חישוב גימטריה רגילה, קטנה והמרת מספרים לאותיות עבריות</p>
-          </div>
-
-          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-            <label class="block text-xs font-bold text-slate-700">הקלד מילה או משפט בעברית:</label>
-            <input type="text" id="gematria-text-input" placeholder="לדוגמה: שלום עליכם, תשפ"ה, אהבה" oninput="calculateTextGematria()" class="w-full bg-white border border-slate-300 rounded-xl p-3 text-lg font-bold text-slate-900 focus:ring-2 focus:ring-brand-500 focus:outline-none">
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                <span class="text-xs text-slate-500 font-semibold block">גימטריה רגילה</span>
-                <strong id="gem-res-standard" class="text-2xl font-black text-brand-700">0</strong>
-              </div>
-              <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                <span class="text-xs text-slate-500 font-semibold block">גימטריה קטנה</span>
-                <strong id="gem-res-small" class="text-2xl font-black text-emerald-700">0</strong>
-              </div>
-              <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                <span class="text-xs text-slate-500 font-semibold block">מספר אותיות</span>
-                <strong id="gem-res-count" class="text-2xl font-black text-purple-700">0</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-            <label class="block text-xs font-bold text-slate-700">המרת מספר/שנה לאותיות (למשל 5785):</label>
-            <div class="flex gap-2">
-              <input type="number" id="num-to-gem-input" placeholder="5785" oninput="convertNumberToHebrewGematria()" class="flex-1 bg-white border border-slate-300 rounded-xl p-3 text-lg font-bold text-slate-900 focus:ring-2 focus:ring-brand-500 focus:outline-none">
-            </div>
-
-            <div class="bg-gradient-to-r from-slate-900 to-brand-900 text-white p-4 rounded-xl text-center">
-              <span class="text-xs text-gold-400 font-semibold block mb-1">כתיב עברי מסורתי</span>
-              <strong id="num-to-gem-result" class="text-3xl font-black font-heading text-gold-300">תשפ"ה</strong>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </div>
 
   </main>
@@ -678,14 +510,10 @@
     window.onload = function() {
       const today = new Date();
       document.getElementById('greg-input-date').value = formatDateForInput(today);
-      document.getElementById('yahrzeit-date-input').value = formatDateForInput(today);
 
       populateHebrewSelectors();
       renderTodayHeader();
       convertGregorianToHebrew();
-      calculateTextGematria();
-      convertNumberToHebrewGematria();
-      renderCalendar();
     };
 
     function formatDateForInput(d) {
@@ -705,33 +533,6 @@
       document.getElementById('today-day-name').textContent = dayText;
       document.getElementById('today-hebrew-str').textContent = `${dayGematria} ב${heb.monthName} ${yearGematria}`;
       document.getElementById('today-greg-str').textContent = now.toLocaleDateString('he-IL');
-    }
-
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('tab-active');
-        btn.classList.add('text-slate-700', 'hover:bg-white/60');
-      });
-      document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.add('hidden');
-      });
-
-      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
-      if (activeBtn) {
-        activeBtn.classList.add('tab-active');
-        activeBtn.classList.remove('text-slate-700', 'hover:bg-white/60');
-      }
-
-      const activeContent = document.getElementById(`tab-content-${tabId}`);
-      if (activeContent) {
-        activeContent.classList.remove('hidden');
-      }
-
-      if (tabId === 'calendar') {
-        renderCalendar();
-      } else if (tabId === 'yahrzeit') {
-        calculateYahrzeit();
-      }
     }
 
     function setConversionMode(mode) {
@@ -917,7 +718,6 @@
     }
 
     function goToToday() {
-      switchTab('converter');
       setConversionMode('g2h');
       const today = new Date();
       document.getElementById('greg-input-date').value = formatDateForInput(today);
@@ -964,154 +764,6 @@
         toast.classList.add('opacity-0', '-translate-y-2');
         setTimeout(() => toast.remove(), 300);
       }, 3000);
-    }
-
-    /* ====================================================================
-       MONTHLY CALENDAR RENDERER
-       ==================================================================== */
-
-    function renderCalendar() {
-      const monthTitle = document.getElementById('cal-month-title');
-      const grid = document.getElementById('calendar-grid');
-      if (!grid || !monthTitle) return;
-
-      grid.innerHTML = '';
-
-      const year = currentCalDate.getFullYear();
-      const month = currentCalDate.getMonth();
-
-      const firstDayOfMonth = new Date(year, month, 1);
-      const lastDayOfMonth = new Date(year, month + 1, 0);
-
-      const monthNamesHeb = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"];
-      monthTitle.textContent = `${monthNamesHeb[month]} ${year}`;
-
-      const startingDay = firstDayOfMonth.getDay();
-      const totalDays = lastDayOfMonth.getDate();
-
-      const today = new Date();
-
-      for (let i = 0; i < startingDay; i++) {
-        const emptyCell = document.createElement('div');
-        emptyCell.className = "bg-slate-100/50 rounded-xl p-2 min-h-[70px]";
-        grid.appendChild(emptyCell);
-      }
-
-      for (let day = 1; day <= totalDays; day++) {
-        const heb = convertGregorianToHebrewCalc(year, month + 1, day);
-        const dayGematria = numberToGematria(heb.hDay);
-        const holiday = getLocalHolidayName(heb.monthName, heb.hDay);
-
-        const isToday = (today.getFullYear() === year && today.getMonth() === month && today.getDate() === day);
-
-        const cell = document.createElement('div');
-        cell.className = `p-2 rounded-xl min-h-[75px] border flex flex-col justify-between cursor-pointer transition transform hover:-translate-y-0.5 hover:shadow-md ${
-          isToday 
-            ? 'bg-brand-900 text-white border-gold-400 shadow-lg ring-2 ring-gold-400' 
-            : 'bg-white text-slate-800 border-slate-200 hover:border-brand-500'
-        }`;
-
-        cell.onclick = () => {
-          currentCalDate = new Date(year, month, day);
-          document.getElementById('greg-input-date').value = formatDateForInput(currentCalDate);
-          switchTab('converter');
-          setConversionMode('g2h');
-          convertGregorianToHebrew();
-        };
-
-        cell.innerHTML = `
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-black ${isToday ? 'text-gold-400' : 'text-slate-900'}">${day}</span>
-            <span class="text-xs font-bold ${isToday ? 'text-slate-200' : 'text-brand-700'}">${dayGematria}</span>
-          </div>
-          <div class="text-[10px] truncate ${isToday ? 'text-slate-300' : 'text-slate-500'}">${heb.monthName}</div>
-          ${holiday ? `<div class="text-[9px] font-bold text-amber-600 truncate bg-amber-50 p-0.5 rounded border border-amber-200 mt-1">${holiday}</div>` : ''}
-        `;
-
-        grid.appendChild(cell);
-      }
-    }
-
-    function changeCalMonth(delta) {
-      currentCalDate.setMonth(currentCalDate.getMonth() + delta);
-      renderCalendar();
-    }
-
-    function resetCalToCurrent() {
-      currentCalDate = new Date();
-      renderCalendar();
-    }
-
-    /* ====================================================================
-       YAHRZEIT CALCULATOR
-       ==================================================================== */
-
-    function calculateYahrzeit() {
-      const dateVal = document.getElementById('yahrzeit-date-input').value;
-      if (!dateVal) return;
-
-      const parts = dateVal.split('-').map(Number);
-      let gYear = parts[0], gMonth = parts[1], gDay = parts[2];
-      const isAfterSunset = document.getElementById('yahrzeit-after-sunset').checked;
-
-      if (isAfterSunset) {
-        const d = new Date(gYear, gMonth - 1, gDay);
-        d.setDate(d.getDate() + 1);
-        gYear = d.getFullYear();
-        gMonth = d.getMonth() + 1;
-        gDay = d.getDate();
-      }
-
-      const hebBase = convertGregorianToHebrewCalc(gYear, gMonth, gDay);
-      const tableBody = document.getElementById('yahrzeit-table-body');
-      if (!tableBody) return;
-
-      tableBody.innerHTML = '';
-
-      for (let i = 0; i < 10; i++) {
-        const targetHYear = hebBase.hYear + i;
-        const jdn = convertHebrewToJdn(targetHYear, hebBase.hMonth, hebBase.hDay);
-        const greg = jdnToGregorian(jdn);
-
-        const dayName = HEBREW_DAY_NAMES[(jdn + 1) % 7];
-        const dayText = dayName === 'שבת' ? 'שבת' : `יום ${dayName}`;
-        const dayGematria = numberToGematria(hebBase.hDay);
-        const yearGematria = numberToGematria(targetHYear);
-
-        const gregStr = new Date(greg.year, greg.month - 1, greg.day).toLocaleDateString('he-IL', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-
-        const row = document.createElement('tr');
-        row.className = i % 2 === 0 ? 'bg-slate-50/60' : 'bg-white';
-        row.innerHTML = `
-          <td class="p-3 font-bold text-slate-700">${targetHYear - hebBase.hYear + 1}</td>
-          <td class="p-3 font-bold text-brand-900">${dayGematria} ב${hebBase.monthName} ${yearGematria}</td>
-          <td class="p-3 text-slate-800">${gregStr}</td>
-          <td class="p-3 text-slate-600">${dayText}</td>
-        `;
-        tableBody.appendChild(row);
-      }
-    }
-
-    /* ====================================================================
-       GEMATRIA TOOLS
-       ==================================================================== */
-
-    function calculateTextGematria() {
-      const input = document.getElementById('gematria-text-input').value;
-      const vals = calculateTextGematriaValues(input);
-
-      document.getElementById('gem-res-standard').textContent = vals.standard;
-      document.getElementById('gem-res-small').textContent = vals.small;
-      document.getElementById('gem-res-count').textContent = vals.count;
-    }
-
-    function convertNumberToHebrewGematria() {
-      const numInput = parseInt(document.getElementById('num-to-gem-input').value) || 5785;
-      document.getElementById('num-to-gem-result').textContent = numberToGematria(numInput);
     }
   </script>
 </body>
